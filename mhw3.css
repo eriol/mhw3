@@ -145,15 +145,15 @@ a.account_register_email:hover {
   text-decoration: none;
 }
 
-#desktop {
+#desktop_container {
   display: flex;
 
   width: 100%;
   height: 800px;
 }
 
-#desktop .left_column,
-#desktop .right_column {
+#desktop_container .left_column,
+#desktop_container .right_column {
   flex-grow: 1;
 }
 
