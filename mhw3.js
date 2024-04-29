@@ -11,6 +11,9 @@ const features = [
 ];
 const MAX_CHOICES = 3;
 
+const ATHLETES_API_URL = 'https://wp24-athletes.colca.mornie.org';
+const ATHLETES_API_URL_RANDOM = ATHLETES_API_URL + '/random';
+
 const menu = document.querySelector('#menu');
 const menuPanel = document.querySelector('#menu_panel');
 const menuPanelNav = document.querySelector('#menu_panel nav');
@@ -24,6 +27,8 @@ const subscriptionExploreButton = document.querySelector(
 );
 const subscriptionMore = document.querySelector('#subscription-more');
 const fidippide = document.querySelector('.fidippide');
+const athleteInfo = document.querySelector('.athletes .info');
+const athletePhoto = document.querySelector('.athletes .photo');
 
 // Open and close the side menu panel.
 function onMenuClicked(event) {
@@ -117,3 +122,23 @@ subscriptionExploreButton.addEventListener(
   onSubscriptionExploreClicked,
 );
 fidippide.addEventListener('mouseover', changeFidippide);
+
+fetch(ATHLETES_API_URL_RANDOM).then(onAthletesResponse).then(onAthletesJson);
+
+function onAthletesResponse(response) {
+  return response.json();
+}
+
+function onAthletesJson(json) {
+  console.log(json);
+  const newH2 = document.createElement('h2');
+  newH2.textContent = json.name;
+  athleteInfo.appendChild(newH2);
+  const newP = document.createElement('p');
+  newP.textContent = json.famous_for;
+  athleteInfo.appendChild(newP);
+
+  const newImg = document.createElement('img');
+  newImg.src = ATHLETES_API_URL + '/images/' + json.slug + '?size=M';
+  athletePhoto.appendChild(newImg);
+}
