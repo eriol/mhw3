@@ -222,7 +222,8 @@ function onDeityInfluenceJson(json) {
   }
 
   const newP = document.createElement('p');
-  newP.textContent = 'ti darà un ' + what + ' in ' + randomSport.sport_id + '.';
+  newP.textContent = 'ti darà un ' + what + ' in '
+    + randomSport.name.toLowerCase() + '.';
   deities.appendChild(newP);
 
   console.log(randomSport);
