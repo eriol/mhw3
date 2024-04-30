@@ -175,37 +175,37 @@ a.account_register_email:hover {
   background-image: url(images/ancient-greece-horse-race.webp);
 }
 
-#external_apis {
+.external_apis {
   display: flex;
 
   width: 100%;
 }
 
-#external_apis .athletes,
-#external_apis .deities {
+.external_apis .athletes,
+.external_apis .deities {
   flex-grow: 1;
   padding: 30px;
   display: flex;
 }
-#external_apis .athletes {
+.external_apis .athletes {
   justify-content: space-between;
   color: white;
   width: 60%;
   background-color: var(--primary-color-fade);
 }
-#external_apis .deities {
+.external_apis .deities {
   justify-content: space-between;
   color: white;
   background-color: var(--subscription-background-color-fade);
   width: 40%;
 }
 
-#external_apis .athletes .info {
+.external_apis .athletes .info {
   display: flex;
   flex-direction: column;
 }
 
-#external_apis .athletes .photo img {
+.external_apis .athletes .photo img {
   border-radius: 5%;
 }
 
@@ -276,12 +276,21 @@ footer ul.links li {
   display: none;
 }
 
+@media (max-width: 1000px) {
+  .external_apis .athletes {
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 700px) {
   #navtop {
     padding: 10px;
   }
 
   #navtop ul {
+    display: none;
+  }
+  .external_apis .athletes .photo {
     display: none;
   }
 
