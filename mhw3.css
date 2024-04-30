@@ -194,7 +194,8 @@ a.account_register_email:hover {
   background-color: var(--primary-color-fade);
 }
 .external_apis .deities {
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   color: white;
   background-color: var(--subscription-background-color-fade);
   width: 40%;
